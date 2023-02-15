@@ -2,7 +2,7 @@
 import os, csv
 from pathlib import Path
 
-# Declare file location through pathlib
+# Declare location of file using pathlib
 input_file = Path("PyBankChall/Resources/budget_data.csv/")
 
 # Create empty lists to iterate through specific rows for the following variables
@@ -29,7 +29,7 @@ with open(input_file, newline="", encoding="utf-8") as budget:
         # Take the difference between two months and append to monthly profit change
         monthly_profit_change.append(total_profit[i + 1] - total_profit[i])
 
-# Obtain the max and min of the the montly profit change list
+# Get maximum and minimum values of the the montly profit
 max_increase_value = max(monthly_profit_change)
 max_decrease_value = min(monthly_profit_change)
 
@@ -48,7 +48,7 @@ print(f"Average Change: {round(sum(monthly_profit_change) / len(monthly_profit_c
 print(f"Greatest Increase in Profits: {total_months[max_increase_month]} (${(str(max_increase_value))})")
 print(f"Greatest Decrease in Profits: {total_months[max_decrease_month]} (${(str(max_decrease_value))})")
 
-# Output files
+# Save the output file
 output_file = Path("PyBankChall/Output/Financial_Analysis_Summary.txt")
 
 with open(output_file, "w") as file:
